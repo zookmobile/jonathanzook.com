@@ -1,246 +1,227 @@
-<!-- games.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Games</title>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <meta charset="UTF-8">
-  <title>Games</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #1a1a1a; /* Dark black background */
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 40px;
-      color: #ffffff; /* White text for contrast */
-    }
-
-    .container {
-      border: 8px solid #ffd700; /* Gold border */
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 700px;
-      margin: auto;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); /* Gold-tinted shadow */
-      position: relative;
-      background-color: #2c2c2c; /* Slightly lighter dark for container */
-    }
-
-    .corner-accent {
-      width: 20px;
-      height: 20px;
-      background-color: #ffd700; /* Gold accents */
-      position: absolute;
-    }
-
-    .corner-top-left {
-      top: -10px;
-      left: -10px;
-    }
-
-    .corner-top-right {
-      top: -10px;
-      right: -10px;
-    }
-
-    .corner-bottom-left {
-      bottom: -10px;
-      left: -10px;
-    }
-
-    .corner-bottom-right {
-      bottom: -10px;
-      right: -10px;
+      padding: 40px 20px;
+      background-color: #0d0d0d;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      color: #cfcfcf;
     }
 
     h1 {
-      font-size: 48px;
-      color: #4169e1; /* Royal blue for header */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
-      margin-bottom: 20px;
+      font-size: 3rem;
+      color: silver;
+      text-shadow: 0 0 10px #aaa, 0 0 20px #999;
+      margin-bottom: 10px;
     }
 
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #d3d3d3; /* Light grey for paragraph text */
+    canvas {
+      background-color: #000;
+      border: 2px solid #00ffff55;
+      box-shadow: 0 0 15px #00ffff88;
+      display: block;
+      margin: 20px auto;
     }
 
-    a {
-      display: inline-block;
+    button {
       padding: 12px 24px;
-      background-color: #4169e1; /* Royal blue buttons */
-      color: #ffffff; /* White text */
-      text-decoration: none;
-      border-radius: 8px;
+      font-size: 16px;
+      background-color: #1f1f1f;
+      color: #00ffff;
+      border: 2px solid #00ffff55;
+      border-radius: 10px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
-      margin: 10px; /* Space between buttons */
+      text-shadow: 0 0 6px #00ffff88;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    a:hover {
-      background-color: #000080; /* Navy on hover */
+    button:hover {
+      background-color: #00ffff;
+      color: #0d0d0d;
+      box-shadow: 0 0 10px #00ffffaa;
+      text-shadow: none;
+    }
+
+    #scoreboard {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #a8f8ff;
+      text-shadow: 0 0 6px #00ffff88;
+    }
+
+    nav {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 10px 20px;
+      background-color: #1f1f1f;
+      border: 2px solid #00ffff55;
+      border-radius: 10px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00ffff88;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #00ffff;
+      color: #0d0d0d;
+      box-shadow: 0 0 10px #00ffffaa;
+      text-shadow: none;
     }
   </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        canvas {
-            background-color: #000;
-            display: block;
-            margin: auto;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        #scoreboard {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #333;
-        }
-        #scoreboard ol {
-            display: inline-block;
-            text-align: left;
-            padding-left: 0;
-            list-style-position: inside;
-        }
-    </style>
 </head>
 <body>
-    <h1>Snake Game</h1>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <br>
-    <button id="startGame">Start Game</button>
-    <div id="scoreboard"></div>
-  <div class="container">
-    <div class="corner-accent corner-top-left"></div>
-    <div class="corner-accent corner-top-right"></div>
-    <div class="corner-accent corner-bottom-left"></div>
-    <div class="corner-accent corner-bottom-right"></div>
 
-    <h1>Navigation</h1>
-    <p>Where to now?</p>
+  <h1>Snake Game</h1>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  <button id="startGame">Start Game</button>
+  <div id="scoreboard"></div>
+
+  <nav>
     <a href="links.html">Links</a>
     <a href="https://jonathanzook.com/intuitivediagnostics">ID</a>
     <a href="https://jonathanzook.com/blog">Blog</a>
     <a href="index.html">Home</a>
-  </div>
-    <script>
-        const canvas = document.getElementById("gameCanvas");
-        const ctx = canvas.getContext("2d");
-        const startButton = document.getElementById("startGame");
-        const scoreboard = document.getElementById("scoreboard");
+  </nav>
 
-        const box = 20;
-        let snake = [{ x: 200, y: 200 }];
-        let direction = "RIGHT";
-        let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
-        let score = 0;
-        let game;
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const startButton = document.getElementById("startGame");
+    const scoreboard = document.getElementById("scoreboard");
 
-        const bodyImg = new Image();
-        bodyImg.src = "https://images.squarespace-cdn.com/content/v1/65732563a614a95a7143d24c/1729866607138-V4OTW4E1HYA2IQHOOSUW/401A8682.jpg?format=2500w";
+    const box = 20;
+    let snake = [{ x: 200, y: 200 }];
+    let direction = "RIGHT";
+    let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
+    let score = 0;
+    let game;
 
-        const headImg = new Image();
-        headImg.src = "https://images.squarespace-cdn.com/content/v1/65732563a614a95a7143d24c/1705194159010-CKW3LCZXYNDN36YXZAQY/DanDale+Fence+favicon.jpg?format=2500w";
+    document.addEventListener("keydown", changeDirection);
+    startButton.addEventListener("click", startGame);
 
-        document.addEventListener("keydown", changeDirection);
-        startButton.addEventListener("click", startGame);
+    function changeDirection(event) {
+      const key = event.keyCode;
+      if ([37, 38, 39, 40].includes(key)) event.preventDefault();
+      if (key === 37 && direction !== "RIGHT") direction = "LEFT";
+      else if (key === 38 && direction !== "DOWN") direction = "UP";
+      else if (key === 39 && direction !== "LEFT") direction = "RIGHT";
+      else if (key === 40 && direction !== "UP") direction = "DOWN";
+    }
 
-        function changeDirection(event) {
-            const key = event.keyCode;
-            if ([37, 38, 39, 40].includes(key)) {
-                event.preventDefault();
-            }
-            if (key === 37 && direction !== "RIGHT") direction = "LEFT";
-            else if (key === 38 && direction !== "DOWN") direction = "UP";
-            else if (key === 39 && direction !== "LEFT") direction = "RIGHT";
-            else if (key === 40 && direction !== "UP") direction = "DOWN";
-        }
+    function drawGame() {
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        function drawGame() {
-            ctx.fillStyle = "black";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Draw food (glowing green circle)
+      ctx.beginPath();
+      ctx.arc(food.x + box / 2, food.y + box / 2, box / 2 - 2, 0, Math.PI * 2);
+      ctx.fillStyle = "#00ff00";
+      ctx.shadowColor = "#00ff00";
+      ctx.shadowBlur = 10;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      ctx.closePath();
 
-            ctx.drawImage(bodyImg, food.x, food.y, box, box);
+      // Draw snake (glowing silver)
+      snake.forEach((segment, index) => {
+        ctx.beginPath();
+        ctx.arc(segment.x + box / 2, segment.y + box / 2, box / 2 - 2, 0, Math.PI * 2);
+        ctx.fillStyle = index === 0 ? "#cccccc" : "#aaaaaa";
+        ctx.shadowColor = "#cccccc";
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.closePath();
+      });
 
-            snake.forEach((segment, index) => {
-                const imageToDraw = index === 0 ? headImg : bodyImg;
-                ctx.drawImage(imageToDraw, segment.x, segment.y, box, box);
-                ctx.strokeStyle = "black";
-                ctx.strokeRect(segment.x, segment.y, box, box);
-            });
+      let snakeX = snake[0].x;
+      let snakeY = snake[0].y;
 
-            let snakeX = snake[0].x;
-            let snakeY = snake[0].y;
+      if (direction === "LEFT") snakeX -= box;
+      if (direction === "UP") snakeY -= box;
+      if (direction === "RIGHT") snakeX += box;
+      if (direction === "DOWN") snakeY += box;
 
-            if (direction === "LEFT") snakeX -= box;
-            if (direction === "UP") snakeY -= box;
-            if (direction === "RIGHT") snakeX += box;
-            if (direction === "DOWN") snakeY += box;
+      if (snakeX === food.x && snakeY === food.y) {
+        score++;
+        food = {
+          x: Math.floor(Math.random() * 20) * box,
+          y: Math.floor(Math.random() * 20) * box
+        };
+      } else {
+        snake.pop();
+      }
 
-            if (snakeX === food.x && snakeY === food.y) {
-                score++;
-                food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
-            } else {
-                snake.pop();
-            }
+      let newHead = { x: snakeX, y: snakeY };
 
-            let newHead = { x: snakeX, y: snakeY };
-            if (collision(newHead, snake) || snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height) {
-                clearInterval(game);
-                updateHighScores(score);
-                displayHighScores();
-                return;
-            }
-            snake.unshift(newHead);
-        }
+      if (
+        collision(newHead, snake) ||
+        snakeX < 0 ||
+        snakeY < 0 ||
+        snakeX >= canvas.width ||
+        snakeY >= canvas.height
+      ) {
+        clearInterval(game);
+        updateHighScores(score);
+        displayHighScores();
+        return;
+      }
 
-        function collision(head, array) {
-            return array.some(segment => head.x === segment.x && head.y === segment.y);
-        }
+      snake.unshift(newHead);
+    }
 
-        function startGame() {
-            if (game) clearInterval(game);
-            snake = [{ x: 200, y: 200 }];
-            direction = "RIGHT";
-            food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
-            score = 0;
-            scoreboard.innerHTML = "";
-            game = setInterval(drawGame, 100);
-        }
+    function collision(head, array) {
+      return array.some(segment => head.x === segment.x && head.y === segment.y);
+    }
 
-        function updateHighScores(currentScore) {
-            let playerName = prompt("New High Score! Enter your name:") || "Anonymous";
-            let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-            highScores.push({ name: playerName, score: currentScore });
-            highScores.sort((a, b) => b.score - a.score);
-            highScores = highScores.slice(0, 5); // Keep top 5
-            localStorage.setItem("highScores", JSON.stringify(highScores));
-        }
+    function startGame() {
+      if (game) clearInterval(game);
+      snake = [{ x: 200, y: 200 }];
+      direction = "RIGHT";
+      food = {
+        x: Math.floor(Math.random() * 20) * box,
+        y: Math.floor(Math.random() * 20) * box
+      };
+      score = 0;
+      scoreboard.innerHTML = "";
+      game = setInterval(drawGame, 100);
+    }
 
-        function displayHighScores() {
-            let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-            let html = `<p>Game Over! Score: ${score}</p><h3>Top 5 High Scores:</h3><ol>`;
-            highScores.forEach(entry => {
-                html += `<li>${entry.name}: ${entry.score}</li>`;
-            });
-            html += `</ol>`;
-            scoreboard.innerHTML = html;
-        }
-    </script>
-   
+    function updateHighScores(currentScore) {
+      let playerName = prompt("New High Score! Enter your name:") || "Anonymous";
+      let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      highScores.push({ name: playerName, score: currentScore });
+      highScores.sort((a, b) => b.score - a.score);
+      highScores = highScores.slice(0, 5);
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+    }
+
+    function displayHighScores() {
+      let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      let html = `<p>Game Over! Score: ${score}</p><h3>Top 5 High Scores:</h3><ol>`;
+      highScores.forEach(entry => {
+        html += `<li>${entry.name}: ${entry.score}</li>`;
+      });
+      html += `</ol>`;
+      scoreboard.innerHTML = html;
+    }
+  </script>
+
 </body>
 </html>
