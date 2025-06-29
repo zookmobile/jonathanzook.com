@@ -89,12 +89,39 @@
   height: auto;
   aspect-ratio: 1 / 1;
 }
+    .mobile-controls {
+  margin-top: 20px;
+}
+
+.mobile-controls button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  background-color: #1f1f1f;
+  color: #00ffff;
+  border: 2px solid #00ffff55;
+  border-radius: 10px;
+  text-shadow: 0 0 5px #00ffff88;
+  font-weight: bold;
+}
+.mobile-controls button:hover {
+  background-color: #00ffff;
+  color: #000;
+}
+
   </style>
 </head>
 <body>
 
   <h1>Snake Game</h1>
-  </canvas><canvas id="gameCanvas"></canvas>
+  <canvas id="gameCanvas"></canvas>
+  <div class="mobile-controls">
+  <button onclick="setDirection('UP')">↑</button><br>
+  <button onclick="setDirection('LEFT')">←</button>
+  <button onclick="setDirection('DOWN')">↓</button>
+  <button onclick="setDirection('RIGHT')">→</button>
+</div>
+
   <button id="startGame">Start Game</button>
   <div id="scoreboard"></div>
 
@@ -227,6 +254,13 @@
       html += `</ol>`;
       scoreboard.innerHTML = html;
     }
+    function setDirection(newDir) {
+  if (newDir === "LEFT" && direction !== "RIGHT") direction = "LEFT";
+  else if (newDir === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
+  else if (newDir === "UP" && direction !== "DOWN") direction = "UP";
+  else if (newDir === "DOWN" && direction !== "UP") direction = "DOWN";
+}
+
   </script>
 
 </body>
