@@ -83,12 +83,18 @@
       box-shadow: 0 0 10px #00ffffaa;
       text-shadow: none;
     }
+    canvas {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
   </style>
 </head>
 <body>
 
   <h1>Snake Game</h1>
-  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  </canvas><canvas id="gameCanvas"></canvas>
   <button id="startGame">Start Game</button>
   <div id="scoreboard"></div>
 
