@@ -134,16 +134,20 @@
 
   <script>
     const canvas = document.getElementById("gameCanvas");
-    const ctx = canvas.getContext("2d");
-    const startButton = document.getElementById("startGame");
-    const scoreboard = document.getElementById("scoreboard");
+const ctx = canvas.getContext("2d");
+canvas.width = 400; // Set canvas width
+canvas.height = 400; // Set canvas height
+const startButton = document.getElementById("startGame");
+const scoreboard = document.getElementById("scoreboard");
 
-    const box = 20;
-    let snake = [{ x: 200, y: 200 }];
-    let direction = "RIGHT";
-    let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
-    let score = 0;
-    let game;
+const box = 20;
+let snake = [{ x: 200, y: 200 }];
+let direction = "RIGHT";
+let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
+let score = 0;
+let game;
+
+// ... rest of your script remains unchanged ...
 
     document.addEventListener("keydown", changeDirection);
     startButton.addEventListener("click", startGame);
