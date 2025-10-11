@@ -17,6 +17,7 @@
       align-items: center;
       text-align: center;
       min-height: 100vh;
+      position: relative;
     }
 
     header {
@@ -99,6 +100,19 @@
       color: inherit;
       text-shadow: 0 0 6px #00ffff88;
     }
+
+    .hidden-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: transparent;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .hidden-link:hover {
+      color: #00ffff;
+    }
   </style>
 </head>
 <body>
@@ -123,6 +137,8 @@
       </div>
     </div>
   </a>
+
+  <a href="https://x.com/NamelessApostle" class="hidden-link">Nameless Apostle</a>
 
 </body>
 </html>
