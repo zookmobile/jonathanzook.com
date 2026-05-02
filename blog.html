@@ -1,43 +1,3 @@
-
-Claude finished the response
-You said: I want to add these two links above the current spotify links on this page: https://open.
-
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <title>Welcome to My Site</title> <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet"> <style>
-
-pasted
-
-I want to add these two links above the current spotify links on this page: https://open.spotify.com/episode/72lMa719Y6RqayCDGExoKc?si=Cfcz0LMnQKKW7JC9e_wo-A and https://open.spotify.com/episode/5GLajOmQcZExTZ7FZRfS43?si=WN6dYRTLTCGxX5pAseYixA the page code is
-
-3:14 PM
-Claude responded: I need to convert the Spotify episode URLs to embed format and add them above the existing embeds.
-
-Check frontend design skill
-Check frontend design skill
-I need to convert the Spotify episode URLs to embed format and add them above the existing embeds.
-
-The two new embed URLs will be:
-
-https://open.spotify.com/embed/episode/72lMa719Y6RqayCDGExoKc
-https://open.spotify.com/embed/episode/5GLajOmQcZExTZ7FZRfS43
-Here's the updated HTML with the two new Spotify embeds added above the existing ones:
-
-
-Created a file, read a file
-Created a file, read a file
-Done! The two new Spotify episode links have been added as a new row of embeds directly above your existing Spotify row, using the same styling as the originals.
-
-
-Index
-Code · HTML 
-
-Want to be notified when Claude responds?
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-Index · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,34 +7,33 @@ Copy
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-  margin: 0;
-  padding: 0;
-  background-color: #0d0d0d;
-  color: #cfcfcf;
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  min-height: 100vh;
-}
- 
- 
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #cfcfcf;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      min-height: 100vh;
+    }
+
     header {
       padding: 60px 20px 20px 20px;
     }
- 
+
     h1 {
       font-size: 4rem;
       color: silver;
       text-shadow: 0 0 15px #aaa, 0 0 30px #999;
       margin: 0;
     }
- 
+
     p {
       font-size: 1.3rem;
       color: #a8f8ff;
       text-shadow: 0 0 6px #00ffff88;
       margin-bottom: 40px;
     }
- 
+
     nav {
       display: flex;
       gap: 20px;
@@ -82,7 +41,7 @@ Copy
       justify-content: center;
       margin-bottom: 60px;
     }
- 
+
     nav a {
       padding: 12px 24px;
       background-color: #1f1f1f;
@@ -95,160 +54,157 @@ Copy
       text-shadow: 0 0 5px #00ffff88;
       transition: 0.3s ease;
     }
- 
+
     nav a:hover {
       background-color: #00ffff;
       color: #0d0d0d;
       text-shadow: none;
       box-shadow: 0 0 10px #00ffffaa;
     }
+
     .video-wrapper {
-  width: 90%;
-  max-width: 800px;
-  aspect-ratio: 16 / 9;
-  margin: 40px auto;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid #00ffff33;
-  box-shadow: 0 0 20px #00ffff55;
-}
- 
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
- 
-}
-.spotify-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin: 40px auto;
-  max-width: 1100px;
-  padding: 0 20px;
-}
- 
-.spotify-embed {
-  flex: 1 1 450px;
-  max-width: 500px;
-  border: 2px solid #00ffff33;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00ffff55;
-  overflow: hidden;
-}
+      width: 90%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      margin: 40px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #00ffff33;
+      box-shadow: 0 0 20px #00ffff55;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .spotify-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1100px;
+      padding: 0 20px;
+    }
+
+    .spotify-embed {
+      flex: 1 1 450px;
+      max-width: 500px;
+      border: 2px solid #00ffff33;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffff55;
+      overflow: hidden;
+    }
+
     .donate-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #1f1f1f;
-  border: 2px solid #00ff88;
-  border-radius: 10px;
-  color: #00ffcc;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  text-shadow: 0 0 6px #00ffff88;
-  transition: all 0.3s ease;
-  font-family: 'Orbitron', sans-serif;
-  box-shadow: 0 0 10px #00ffff55;
-}
- 
-.donate-button:hover {
-  background-color: #00ffff;
-  color: #0d0d0d;
-  box-shadow: 0 0 15px #00ffffaa;
-  text-shadow: none;
-}
- 
- 
- 
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #1f1f1f;
+      border: 2px solid #00ff88;
+      border-radius: 10px;
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      text-shadow: 0 0 6px #00ffff88;
+      transition: all 0.3s ease;
+      font-family: 'Orbitron', sans-serif;
+      box-shadow: 0 0 10px #00ffff55;
+    }
+
+    .donate-button:hover {
+      background-color: #00ffff;
+      color: #0d0d0d;
+      box-shadow: 0 0 15px #00ffffaa;
+      text-shadow: none;
+    }
   </style>
 </head>
 <body>
- 
+
   <header>
     <h1>Blog</h1>
     <p>Welcome to my blog page, I will be adding written and video blog posts here in the future</p>
   </header>
- 
+
   <nav>
     <a href="https://jonathanzook.com">Home</a>
     <a href="https://jonathanzook.com/links">Links</a>
     <a href="https://jonathanzook.com/intuitivediagnostics">ID</a>
     <a href="https://jonathanzook.com/games">Games</a>
   </nav>
- <div class="video-wrapper">
-  <iframe 
-    src="https://www.youtube.com/embed/og0ov5gWRG4?si=Rrm00HJI5JSZWC5L" 
-    title="YouTube video 1" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
- 
-<div class="video-wrapper">
-  <iframe 
-    src="https://www.youtube.com/embed/UUueGMMDU0Q?si=0PAzUFkPypzk1f42" 
-    title="YouTube video 2" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
- 
-<!-- New Spotify embeds (added above existing ones) -->
-<div class="spotify-row">
-  <div class="spotify-embed">
-    <iframe style="border-radius:12px"
-      src="https://open.spotify.com/embed/episode/72lMa719Y6RqayCDGExoKc?utm_source=generator"
-      width="100%" height="352" frameBorder="0"
-      allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/og0ov5gWRG4?si=Rrm00HJI5JSZWC5L"
+      title="YouTube video 1" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
     </iframe>
   </div>
- 
-  <div class="spotify-embed">
-    <iframe style="border-radius:12px"
-      src="https://open.spotify.com/embed/episode/5GLajOmQcZExTZ7FZRfS43?utm_source=generator"
-      width="100%" height="352" frameBorder="0"
-      allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/UUueGMMDU0Q?si=0PAzUFkPypzk1f42"
+      title="YouTube video 2" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
     </iframe>
   </div>
-</div>
- 
-<!-- Original Spotify embeds -->
-<div class="spotify-row">
-  <div class="spotify-embed">
-    <iframe style="border-radius:12px"
-      src="https://open.spotify.com/embed/episode/0OzMOmQACw852WAy0mELGt?utm_source=generator"
-      width="100%" height="352" frameBorder="0"
-      allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
+
+  <!-- New Spotify embeds (added above originals) -->
+  <div class="spotify-row">
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/episode/72lMa719Y6RqayCDGExoKc?utm_source=generator"
+        width="100%" height="352" frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/episode/5GLajOmQcZExTZ7FZRfS43?utm_source=generator"
+        width="100%" height="352" frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
- 
-  <div class="spotify-embed">
-    <iframe style="border-radius:12px"
-      src="https://open.spotify.com/embed/episode/2hxtJYVWHH3kpmnWXNRWCT?utm_source=generator"
-      width="100%" height="352" frameBorder="0"
-      allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
+
+  <!-- Original Spotify embeds -->
+  <div class="spotify-row">
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/episode/0OzMOmQACw852WAy0mELGt?utm_source=generator"
+        width="100%" height="352" frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/episode/2hxtJYVWHH3kpmnWXNRWCT?utm_source=generator"
+        width="100%" height="352" frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
-</div>
- 
+
   <div style="margin: 40px 0;">
-  <a href="https://cash.app/$jdzook" target="_blank" class="donate-button">Donate via Cash App</a>
-</div>
- 
- 
- 
+    <a href="https://cash.app/$jdzook" target="_blank" class="donate-button">Donate via Cash App</a>
+  </div>
+
 </body>
 </html>
- 
